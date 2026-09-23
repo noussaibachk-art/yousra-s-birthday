@@ -1,0 +1,1106 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+}
+
+
+/* =========================
+   GENERAL SCREEN
+========================= */
+
+.screen {
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+}
+
+.hidden {
+    display: none !important;
+}
+
+
+/* =========================
+   PINK START SCREEN
+========================= */
+
+.pink-screen {
+    background-color: #ffd6e7;
+}
+
+.small-text {
+    font-size: 20px;
+    color: #8b3155;
+    margin-bottom: 35px;
+}
+
+.click-text {
+    margin-top: 30px;
+    color: #8b3155;
+    font-size: 18px;
+}
+
+
+/* =========================
+   GIFT
+========================= */
+
+.gift-area {
+    position: relative;
+    width: 240px;
+    height: 220px;
+    cursor: pointer;
+
+    transition: transform 0.3s ease;
+}
+
+.gift-area:hover {
+    transform: scale(1.05);
+}
+
+.box {
+    width: 200px;
+    height: 150px;
+
+    background-color: white;
+
+    position: absolute;
+    bottom: 0;
+    left: 20px;
+
+    border-radius: 3px;
+
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+}
+
+.lid {
+    width: 220px;
+    height: 35px;
+
+    background-color: white;
+
+    position: absolute;
+    top: 35px;
+    left: 10px;
+
+    border-radius: 4px;
+
+    z-index: 2;
+
+    transition: transform 0.8s ease;
+}
+
+.gift-area.opened .lid {
+    transform: translateY(-80px) rotate(-5deg);
+}
+
+.ribbon-vertical {
+    width: 30px;
+    height: 100%;
+
+    background-color: #e63967;
+
+    position: absolute;
+    left: 50%;
+
+    transform: translateX(-50%);
+}
+
+.ribbon-horizontal {
+    width: 100%;
+    height: 30px;
+
+    background-color: #e63967;
+
+    position: absolute;
+    top: 50%;
+
+    transform: translateY(-50%);
+}
+
+
+/* =========================
+   BOW
+========================= */
+
+.bow {
+    position: absolute;
+    top: -28px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 80px;
+    height: 50px;
+}
+
+.bow-left,
+.bow-right {
+    width: 38px;
+    height: 30px;
+
+    background-color: #e63967;
+
+    position: absolute;
+    top: 10px;
+
+    border-radius: 50%;
+}
+
+.bow-left {
+    left: 0;
+    transform: rotate(-25deg);
+}
+
+.bow-right {
+    right: 0;
+    transform: rotate(25deg);
+}
+
+.bow-center {
+    width: 22px;
+    height: 22px;
+
+    background-color: #c92755;
+
+    border-radius: 50%;
+
+    position: absolute;
+    left: 50%;
+    top: 15px;
+
+    transform: translateX(-50%);
+}
+
+
+/* =========================
+   NIGHT SKY
+========================= */
+
+.night-screen,
+.wish-screen,
+.wishes-screen,
+.final-screen {
+    background-color: #07152f;
+    color: white;
+}
+
+
+/* =========================
+   STARS
+========================= */
+
+.stars {
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        radial-gradient(circle, white 1px, transparent 1px),
+        radial-gradient(circle, white 1px, transparent 1px);
+
+    background-size: 80px 80px, 130px 130px;
+
+    background-position:
+        10px 20px,
+        50px 70px;
+
+    opacity: 0.7;
+
+    pointer-events: none;
+}
+
+
+/* =========================
+   FIREWORKS
+========================= */
+
+.fireworks {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    pointer-events: none;
+}
+
+.firework {
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+
+    position: absolute;
+
+    animation: explode 1.8s infinite;
+}
+
+.firework-one {
+    top: 25%;
+    left: 25%;
+
+    box-shadow:
+        0 -55px #ff4f81,
+        0 55px #ff4f81,
+        55px 0 #ff4f81,
+        -55px 0 #ff4f81,
+        40px 40px #ff4f81,
+        -40px -40px #ff4f81,
+        40px -40px #ff4f81,
+        -40px 40px #ff4f81;
+}
+
+.firework-two {
+    top: 20%;
+    right: 25%;
+
+    animation-delay: 0.5s;
+
+    box-shadow:
+        0 -45px #ffd166,
+        0 45px #ffd166,
+        45px 0 #ffd166,
+        -45px 0 #ffd166,
+        32px 32px #ffd166,
+        -32px -32px #ffd166,
+        32px -32px #ffd166,
+        -32px 32px #ffd166;
+}
+
+.firework-three {
+    top: 35%;
+    left: 50%;
+
+    animation-delay: 1s;
+
+    box-shadow:
+        0 -50px #8be9fd,
+        0 50px #8be9fd,
+        50px 0 #8be9fd,
+        -50px 0 #8be9fd,
+        35px 35px #8be9fd,
+        -35px -35px #8be9fd,
+        35px -35px #8be9fd,
+        -35px 35px #8be9fd;
+}
+
+@keyframes explode {
+
+    0% {
+        transform: scale(0.3);
+        opacity: 0;
+    }
+
+    30% {
+        opacity: 1;
+    }
+
+    70% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1.3);
+        opacity: 0;
+    }
+}
+
+
+/* =========================
+   LETTER
+========================= */
+
+.letter {
+    position: relative;
+    z-index: 5;
+
+    animation: appear 1s ease forwards;
+}
+
+.letter-paper {
+    width: 500px;
+    max-width: 90vw;
+
+    padding: 30px;
+
+    background-color: #fff8f0;
+    color: #5b4052;
+
+    border-radius: 10px;
+
+    text-align: center;
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+.letter-paper span {
+    font-size: 45px;
+}
+
+.letter-paper h2 {
+    margin: 10px 0;
+}
+
+.letter-paper p {
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.letter-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+button {
+    border: none;
+
+    padding: 12px 20px;
+
+    border-radius: 25px;
+
+    cursor: pointer;
+
+    font-weight: bold;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+#open-letter {
+    background-color: #e63967;
+    color: white;
+}
+
+#skip-letter {
+    background-color: #ddd;
+    color: #444;
+}
+
+#continue-letter {
+    background-color: #e63967;
+    color: white;
+}
+
+
+/* =========================
+   WISHES
+========================= */
+
+.wishes-content {
+    position: relative;
+    z-index: 3;
+
+    width: 340px;
+    max-width: 88vw;
+
+    text-align: center;
+}
+
+.wish-heart {
+    font-size: 55px;
+    margin-bottom: 15px;
+}
+
+.wishes-content h1 {
+    margin-bottom: 30px;
+}
+
+.wishes-content p {
+    font-size: 19px;
+    line-height: 1.7;
+
+    min-height: 80px;
+
+    animation: appear 0.7s ease;
+}
+
+#next-wish {
+    margin-top: 20px;
+
+    background-color: #ff5c8a;
+    color: white;
+}
+
+
+/* =========================
+   WISH SCREEN
+========================= */
+
+.wish-screen h1 {
+    position: relative;
+    z-index: 2;
+
+    margin-bottom: 40px;
+}
+
+
+/* =========================
+   CAKE
+========================= */
+
+.cake {
+    position: relative;
+
+    width: 220px;
+    height: 190px;
+
+    z-index: 2;
+}
+
+.cake-bottom,
+.cake-middle,
+.cake-top {
+    position: absolute;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    border-radius: 10px;
+}
+
+.cake-bottom {
+    width: 200px;
+    height: 60px;
+
+    background-color: #e89a8c;
+
+    bottom: 20px;
+}
+
+.cake-middle {
+    width: 175px;
+    height: 45px;
+
+    background-color: #f4b6a8;
+
+    bottom: 65px;
+}
+
+.cake-top {
+    width: 150px;
+    height: 40px;
+
+    background-color: #ffd1c7;
+
+    bottom: 100px;
+}
+
+.candle {
+    width: 14px;
+    height: 50px;
+
+    background-color: #f7d774;
+
+    position: absolute;
+
+    left: 50%;
+    bottom: 140px;
+
+    transform: translateX(-50%);
+
+    z-index: 3;
+}
+
+.flame {
+    width: 15px;
+    height: 22px;
+
+    background-color: orange;
+
+    border-radius: 50% 50% 50% 0;
+
+    position: absolute;
+
+    top: -20px;
+    left: 50%;
+
+    transform: translateX(-50%) rotate(45deg);
+
+    animation: flicker 0.5s infinite alternate;
+}
+
+@keyframes flicker {
+
+    from {
+        transform: translateX(-50%) rotate(45deg) scale(1);
+    }
+
+    to {
+        transform: translateX(-50%) rotate(45deg) scale(1.15);
+    }
+}
+
+#wish-text {
+    position: relative;
+    z-index: 2;
+
+    margin: 25px 0;
+}
+
+#wish-button {
+    position: relative;
+    z-index: 2;
+
+    background-color: #ff5c8a;
+    color: white;
+}
+
+
+/* =========================
+   FINAL SCREEN
+========================= */
+
+.final-content {
+    position: relative;
+    z-index: 5;
+
+    text-align: center;
+}
+
+.heart {
+    font-size: 70px;
+
+    animation: heartbeat 1s infinite;
+}
+
+.final-content h1 {
+    font-size: 42px;
+    margin: 15px 0;
+}
+
+.love-message {
+    font-size: 25px;
+    margin-bottom: 40px;
+}
+
+.final-content h2 {
+    margin-bottom: 25px;
+}
+
+.answer-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+#yes-button {
+    background-color: #ff5c8a;
+    color: white;
+}
+
+#no-button {
+    background-color: white;
+    color: #444;
+
+    position: relative;
+}
+
+#yes-message {
+    margin-top: 25px;
+    font-size: 20px;
+}
+
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes appear {
+
+    from {
+        opacity: 0;
+        transform: scale(0.7);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes heartbeat {
+
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 500px) {
+
+    .letter-paper {
+        width: 85%;
+    }
+
+    .final-content h1 {
+        font-size: 32px;
+    }
+
+    .small-text {
+        font-size: 18px;
+    }
+
+    .wishes-content h1 {
+        font-size: 30px;
+    }
+
+    .wishes-content p {
+        font-size: 17px;
+    }
+}
+/* =====================================================
+   DREAMY FIRST PAGE BACKGROUND
+===================================================== */
+
+.pink-screen {
+    background:
+        radial-gradient(circle at 20% 20%, rgba(255,255,255,0.65), transparent 25%),
+        radial-gradient(circle at 80% 30%, rgba(255,190,220,0.7), transparent 30%),
+        radial-gradient(circle at 50% 90%, rgba(255,220,235,0.8), transparent 35%),
+        linear-gradient(135deg, #ffd6e7, #f9c8df, #ffe1ec);
+}
+
+
+/* Keep decorations behind everything */
+
+.cute-background {
+    position: absolute;
+    inset: 0;
+
+    overflow: hidden;
+
+    pointer-events: none;
+
+    z-index: 0;
+}
+
+
+/* Hearts */
+
+.cute-heart {
+    position: absolute;
+
+    color: rgba(230, 57, 103, 0.35);
+
+    font-size: 30px;
+
+    animation: floatCute 5s ease-in-out infinite;
+}
+
+.heart-1 {
+    left: 10%;
+    top: 20%;
+
+    font-size: 24px;
+
+    animation-delay: 0s;
+}
+
+.heart-2 {
+    right: 12%;
+    top: 25%;
+
+    font-size: 38px;
+
+    animation-delay: 1.5s;
+}
+
+.heart-3 {
+    left: 18%;
+    bottom: 18%;
+
+    font-size: 20px;
+
+    animation-delay: 2.5s;
+}
+
+
+/* Butterflies */
+
+.butterfly {
+    position: absolute;
+
+    font-size: 35px;
+
+    opacity: 0.65;
+
+    animation: butterflyFloat 7s ease-in-out infinite;
+}
+
+.butterfly-1 {
+    left: 7%;
+    top: 55%;
+
+    animation-delay: 1s;
+}
+
+.butterfly-2 {
+    right: 8%;
+    bottom: 20%;
+
+    font-size: 28px;
+
+    animation-delay: 3s;
+}
+
+
+/* Little sparkles */
+
+.sparkle {
+    position: absolute;
+
+    color: white;
+
+    text-shadow:
+        0 0 8px white,
+        0 0 18px #ff8fba;
+
+    animation: sparkleGlow 2s ease-in-out infinite;
+}
+
+.sparkle-1 {
+    top: 18%;
+    left: 30%;
+}
+
+.sparkle-2 {
+    top: 30%;
+    right: 25%;
+
+    animation-delay: .5s;
+}
+
+.sparkle-3 {
+    bottom: 25%;
+    left: 30%;
+
+    animation-delay: 1s;
+}
+
+.sparkle-4 {
+    bottom: 15%;
+    right: 28%;
+
+    animation-delay: 1.5s;
+}
+
+
+/* Flowers */
+
+.flower {
+    position: absolute;
+
+    opacity: 0.45;
+
+    font-size: 25px;
+
+    animation: floatCute 6s ease-in-out infinite;
+}
+
+.flower-1 {
+    left: 5%;
+    bottom: 8%;
+}
+
+.flower-2 {
+    right: 5%;
+    top: 12%;
+
+    animation-delay: 2s;
+}
+
+
+/* Handwritten text */
+
+.small-text {
+    position: relative;
+
+    z-index: 3;
+
+    font-family: "Brush Script MT", "Segoe Script", cursive;
+
+    font-style: italic;
+
+    font-size: 27px;
+
+    letter-spacing: 1px;
+
+    color: #8b3155;
+
+    text-shadow: 0 2px 8px rgba(255,255,255,0.7);
+
+    animation: softText 2s ease;
+}
+
+
+@keyframes floatCute {
+
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-15px) rotate(5deg);
+    }
+}
+
+
+@keyframes butterflyFloat {
+
+    0%, 100% {
+        transform: translate(0, 0) rotate(-5deg);
+    }
+
+    50% {
+        transform: translate(15px, -25px) rotate(8deg);
+    }
+}
+
+
+@keyframes sparkleGlow {
+
+    0%, 100% {
+        opacity: 0.25;
+        transform: scale(0.7);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.3);
+    }
+}
+
+
+@keyframes softText {
+
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =====================================================
+   REALISTIC-STYLE FIREWORK PARTICLES
+===================================================== */
+
+#fireworks {
+    position: absolute;
+
+    inset: 0;
+
+    overflow: hidden;
+
+    pointer-events: none;
+
+    z-index: 2;
+}
+
+
+.firework-burst {
+    position: absolute;
+
+    width: 5px;
+    height: 5px;
+
+    border-radius: 50%;
+
+    background: white;
+
+    box-shadow:
+        0 0 8px currentColor,
+        0 0 18px currentColor;
+
+    animation: fireworkFlash 1.5s ease-out forwards;
+}
+
+
+.firework-particle {
+    position: absolute;
+
+    width: 4px;
+    height: 4px;
+
+    border-radius: 50%;
+
+    background: currentColor;
+
+    box-shadow:
+        0 0 6px currentColor,
+        0 0 12px currentColor;
+
+    animation: particleExplode 1.5s cubic-bezier(.1,.7,.2,1) forwards;
+}
+
+
+@keyframes fireworkFlash {
+
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    15% {
+        transform: scale(2);
+        opacity: 1;
+    }
+
+    30% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(0.2);
+        opacity: 0;
+    }
+}
+
+
+@keyframes particleExplode {
+
+    0% {
+        transform:
+            translate(0, 0)
+            scale(1.5);
+
+        opacity: 1;
+    }
+
+    60% {
+        opacity: 1;
+    }
+
+    100% {
+        transform:
+            translate(var(--x), var(--y))
+            scale(0.1);
+
+        opacity: 0;
+    }
+}
+
+
+/* =====================================================
+   BEAUTIFUL NIGHT SKY
+===================================================== */
+
+.stars {
+    background: transparent;
+
+    opacity: 1;
+
+    pointer-events: none;
+
+    z-index: 1;
+}
+
+
+/* Individual stars created by JavaScript */
+
+.sky-star {
+    position: absolute;
+
+    width: 4px;
+    height: 4px;
+
+    background: white;
+
+    transform: rotate(45deg);
+
+    box-shadow:
+        0 0 5px white,
+        0 0 12px rgba(255,255,255,0.9);
+
+    animation: starTwinkle var(--duration) ease-in-out infinite;
+
+    animation-delay: var(--delay);
+}
+
+
+.sky-star::before,
+.sky-star::after {
+    content: "";
+
+    position: absolute;
+
+    background: white;
+}
+
+
+.sky-star::before {
+    width: 2px;
+    height: 14px;
+
+    left: 1px;
+    top: -5px;
+}
+
+
+.sky-star::after {
+    width: 14px;
+    height: 2px;
+
+    left: -5px;
+    top: 1px;
+}
+
+
+.big-star {
+    width: 6px;
+    height: 6px;
+
+    box-shadow:
+        0 0 8px white,
+        0 0 20px white,
+        0 0 30px rgba(255,255,255,0.7);
+}
+
+
+@keyframes starTwinkle {
+
+    0%, 100% {
+        opacity: 0.25;
+        transform: rotate(45deg) scale(0.7);
+    }
+
+    50% {
+        opacity: 1;
+        transform: rotate(45deg) scale(1.5);
+    }
+}
